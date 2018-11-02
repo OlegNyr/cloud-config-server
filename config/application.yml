@@ -1,0 +1,15 @@
+management.endpoints.web.exposure.include: "*"
+management:
+  endpoint:
+    metrics.enabled: true
+    prometheus.enabled: true
+    routes.enabled: true
+    health:
+      show-details: ALWAYS
+
+logging.level.org.springframework.security: DEBUG
+
+security.oauth2:
+  resource:
+    user-info-uri: http://authservice/uaa/user
+    loadBalanced: true

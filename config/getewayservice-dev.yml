@@ -1,0 +1,24 @@
+server:
+  port: ${PORT:8080}
+
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    hello:
+      path: /hello/**
+      serviceId: demoservice
+    auth:
+      path: /uaa/**
+      serviceId: authservice
+
+security.oauth2:
+  client:
+    client-id: html5
+    client-secret: password
+
+    access-token-uri: http://localhost:9091/uaa/oauth/token
+    user-authorization-uri: http://localhost:9091/uaa/oauth/authorize
+  #итого получается если сюда
+  # 1)Сервис засунуть оно не работает
+  # 2)Если самого себя сюда  и прокинуть через zull оно не работает
+  # 3)Если убрать прифекс оно не работает

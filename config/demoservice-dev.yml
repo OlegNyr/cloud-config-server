@@ -1,0 +1,4 @@
+server:
+  port: ${PORT:9080}
+
+hystrix.command.default.execution.isolation.strategy: SEMAPHORE
